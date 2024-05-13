@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mappy_social/login_page.dart';
+import 'package:mappy_social/config/app_routes.dart';
+import 'package:mappy_social/styles/app_colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginPage();
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Urbanist',
+        scaffoldBackgroundColor: AppColors.background,
+        brightness: Brightness.dark,
+      ),
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
+    );
   }
 }
