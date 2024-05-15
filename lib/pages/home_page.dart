@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mappy_social/components/post_item.dart';
 import 'package:mappy_social/components/toolbar.dart';
+import 'package:mappy_social/config/app_routes.dart';
 import 'package:mappy_social/config/app_strings.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,7 +18,9 @@ class HomePage extends StatelessWidget {
         title: AppStrings.appName,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.nearby);
+            },
             icon: SvgPicture.asset(
               'assets/svg/location_icon.svg',
             ),
