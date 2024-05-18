@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mappy_social/components/bottom_navigation_item.dart';
+import 'package:mappy_social/components/new_post_modal.dart';
 import 'package:mappy_social/config/app_icons.dart';
+import 'package:mappy_social/data/model/user.dart';
+import 'package:mappy_social/pages/chat_page.dart';
 import 'package:mappy_social/pages/home_page.dart';
 import 'package:mappy_social/pages/profile_page.dart';
 import 'package:mappy_social/styles/app_colors.dart';
@@ -24,6 +27,18 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: MyBottomNavigation(
         currentIndex: currentIndex,
         onTap: (value) {
+          if (value == Menus.add) {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              builder: (context) {
+                return NewPostModal();
+              },
+            );
+            return;
+          }
+
           setState(() {
             currentIndex = value;
           });
@@ -40,9 +55,7 @@ class _MainPageState extends State<MainPage> {
     Center(
       child: Text('Add Post'),
     ),
-    Center(
-      child: Text('Messages'),
-    ),
+    ChatPage(),
     ProfilePage()
   ];
 }

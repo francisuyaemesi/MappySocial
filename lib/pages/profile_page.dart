@@ -4,7 +4,9 @@ import 'package:mappy_social/components/toolbar.dart';
 import 'package:mappy_social/components/user_avatar.dart';
 import 'package:mappy_social/config/app_routes.dart';
 import 'package:mappy_social/config/app_strings.dart';
+import 'package:mappy_social/provider/app_repo.dart';
 import 'package:mappy_social/styles/app_text.dart';
+import 'package:provider/provider.dart';
 
 enum ProfileMenu { edit, logout }
 
@@ -13,6 +15,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = context.read<AppRepo>().user;
     return Scaffold(
       appBar: Toolbar(title: AppStrings.profile, actions: [
         PopupMenuButton<ProfileMenu>(
@@ -51,7 +54,7 @@ class ProfilePage extends StatelessWidget {
             height: 24,
           ),
           Text(
-            'Mahdi Mirzadeh',
+            '${user?.id} ${user?.firstname} ${user?.lastname}',
             style: AppText.header2,
           ),
           Text(

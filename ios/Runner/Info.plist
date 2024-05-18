@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Mappy Social needs access to gallery so that you can upload your pictures for posts and profile</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Mappy Social needs access to camera so that you can upload your pictures for posts and profile</string>
 </dict>
 </plist>
